@@ -1,4 +1,8 @@
 <?php
+if (!is_dir('uploads')) {
+    mkdir('uploads', 0755, true);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $target = 'uploads/' . basename($_FILES['file']['name']);
     if (move_uploaded_file($_FILES['file']['tmp_name'], $target)) {
